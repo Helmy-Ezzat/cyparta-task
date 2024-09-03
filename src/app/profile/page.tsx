@@ -17,9 +17,7 @@ interface UserProfile {
 }
 
 export default function Profile({ userProfile }: { userProfile: UserProfile }) {
-  const [userProfileData, setUserProfileData] = useState<UserProfile | null>(
-    null
-  )
+ 
   const [error, setError] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -39,7 +37,7 @@ export default function Profile({ userProfile }: { userProfile: UserProfile }) {
       <div className="w-full lg:w-5/6 flex flex-col lg:flex-row items-center border-b pb-4 border-gray-200">
         <div className="flex flex-col sm:flex-row gap-4 items-center">
           <Image
-            src={userProfileData?.image || '/helmy.jpg'}
+            src={'/helmy.jpg'}
             width={100}
             height={100}
             className="rounded-md"
@@ -47,10 +45,10 @@ export default function Profile({ userProfile }: { userProfile: UserProfile }) {
           />
           <div className="flex flex-col justify-between text-center sm:text-left">
             <h2 className="text-2xl font-bold">
-              {userProfileData?.name}
+             Helmy Ezzat
             </h2>
             <p className="text-gray-600">UX/UI DESIGNER</p>
-            <p className="text-gray-600">{userProfileData?.email}</p>
+            <p className="text-gray-600">Helmy@gmail.com</p>
           </div>
         </div>
         <button
@@ -69,7 +67,7 @@ export default function Profile({ userProfile }: { userProfile: UserProfile }) {
         <EditProfileModal
           isOpen={isModalOpen}
           onClose={handleCloseModal}
-          userProfile={userProfile}
+         
           onSave={handleSaveProfile}
         />
       </div>
